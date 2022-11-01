@@ -1,15 +1,15 @@
 ---
 
 base_archiving_tools:
-  - arj
-  - cabextract
-  - file-roller
-  - mpack
+  # - arj
+  # - cabextract
+  # - file-roller
+  # - mpack
   - p7zip-full
   - p7zip-rar
   - rar
   - sharutils
-  - unace
+  # - unace
   - unrar
   - unzip
   - uudeview
@@ -17,14 +17,16 @@ base_archiving_tools:
 
 base_productivity_tools:
   - libreoffice
+  - google-chrome-stable
 
 base_system_tools:
-  - fatrace
-  - fdupes
+  # - fatrace
+  # - fdupes
   - gnome-calculator
   - gufw
-  - progress
-  - pwgen
+  - chrome-gnome-shell # Ubuntu extensions
+  # - progress
+  # - pwgen
   #- syncthing
 
 base_system_tools_laptop:
@@ -36,118 +38,120 @@ base_system_tools_laptop:
 #  - tp-smapi-dkms  # for older ThinkPads
 
 base_download_tools:
-  - aria2
-  - axel
+  # - aria2
+  # - axel
   - transmission
   - speedtest-cli
   - wget
-  - youtube-dl
+  # - youtube-dl
 
 base_developer_tools:
-  - 2to3
-  - android-tools-adb
-  - android-tools-fastboot
+  # - 2to3
+  # - android-tools-adb
+  # - android-tools-fastboot
   - ansible
   - ansible-lint
-  - awscli
+  # - awscli
   - bat
-  - bpython
-  - black
-  - cloc
-  - clusterssh
+  # - bpython
+  # - black
+  # - cloc
+  # - clusterssh
   - colordiff
-  - csvkit
+  # - csvkit
   - curl
-  - default-jre-headless
-  - dos2unix
-  - entr
-  - exa
-  - expect
-  - filezilla
+  # - default-jre-headless
+  # - dos2unix
+  # - entr
+  # - exa
+  # - expect
+  # - filezilla
   - fonts-powerline
   - fzf
   - g++
-  - gedit-plugins
-  - geoip-bin
-  - ghostwriter
+  # - gedit-plugins
+  # - geoip-bin
+  # - ghostwriter
   - git
-  - git-extras
-  - gitg
-  - golang-go
+  # - git-extras
+  # - gitg
+  # - golang-go
   - htop
-  - httpie
-  - inotify-tools
-  - ipython3
+  # - httpie
+  # - inotify-tools
+  # - ipython3
   - jq
-  - kwalify
-  - makeself
-  - meld
-  - miller
-  - moreutils
-  - most
+  # - kwalify
+  # - makeself
+  # - meld
+  # - miller
+  # - moreutils
+  # - most
   - ncat
-  - netcat
+  # - netcat
   - nmap
-  - nmon
-  - nodejs
-  - pandoc
-  - parallel
-  - pcre2-utils  # provides pcre2grep and pcre2test (perl-compatible regex)
-  - pep8
+  # - nmon
+  # - nodejs
+  # - pandoc
+  # - parallel
+  # - pcre2-utils  # provides pcre2grep and pcre2test (perl-compatible regex)
+  # - pep8
   - powerline
-  - pry
-  - pssh
+  # - pry
+  # - pssh
   #- puppet
   #- puppet-lint
-  - pv
-  - pylint
-  - python3-cachecontrol
-  - python3-demjson  # provides jsonlint-py3 for json lint
-  - python3-jmespath
-  - python3-pep8
+  # - pv
+  # - pylint
+  # - python3-cachecontrol
+  # - python3-demjson  # provides jsonlint-py3 for json lint
+  # - python3-jmespath
+  # - python3-pep8
   - python3-pip
-  - python3-poetry
-  - ranger
-  - rclone
-  - recode
+  # - python3-poetry
+  # - ranger
+  # - rclone
+  # - recode
   - remmina
-  - rename
-  - ripgrep  # launch using rg from the cli
-  - ruby
-  - ruby-dev
+  # - rename
+  # - ripgrep  # launch using rg from the cli
+  # - ruby
+  # - ruby-dev
   - shellcheck
-  - siege
-  - socat
+  # - siege
+  # - socat
   - sshfs
   - sshpass
   - sshuttle
   - tig
-  - tilix
-  - tmux
-  - tmuxp
+  # - tilix
+  # - tmux
+  # - tmuxp
   - tree
   - uget
   - xclip
-  - yamllint
+  # - yamllint
   - zeal
 
 base_developer_tools_pip3:
-  - tldr
+  # - tldr
 
 base_virtualization_tools:
   - virtualbox
   - virtualbox-ext-pack
-  - docker.io
-  - docker-compose
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-compose-plugin
 
 base_media_tools:
   - ffmpeg
-  - gimp
+  # - gimp
   - imagemagick
-  - libimage-exiftool-perl
+  # - libimage-exiftool-perl
   - mediainfo
-  - soundconverter
-  - totem
+  # - soundconverter
+  # - totem
 #  - ubuntu-restricted-extras
   - vlc
 
