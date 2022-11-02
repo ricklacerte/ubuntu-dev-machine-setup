@@ -1,16 +1,39 @@
 ---
-- name: Add google-chrome repository
+
+- name: Set dpkg_architecture
+  ansible.builtin.shell: dpkg --print-architecture
+  register: dpkg_architecture
+  ignore_errors: true
+
+- name: Add google-chrome source repository
   block:
-    - name: Set gpg key
-      ansible.builtin.apt_key:
+    - name: Set google-chrome gpg key
+      ansible.builtin.get_url:
         url: "{{ google_chrome_key }}"
-        state: present
+        dest: /etc/apt/keyrings/google-chrome.asc
+        mode: '0644'
+        force: true
 
     - name: Add google-chrome to sources list
       ansible.builtin.apt_repository:
         repo: "{{ google_chrome_repository }}"
         state: present
         filename: google-chrome
+
+- name: Add docker source repository
+  block:
+    - name : Set docker gpg key
+      ansible.builtin.get_url:
+        url: "{{ docker_key }}"
+        dest: /etc/apt/keyrings/docker.asc
+        mode: '0644'
+        force: true
+
+    - name: Add docker to sources list
+      ansible.builtin.apt_repository:
+        repo: "{{ docker_repository }}"
+        state: present
+        filename: docker
 
 - name: perform a dist upgrade
   ansible.builtin.apt:
