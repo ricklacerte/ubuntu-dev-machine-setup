@@ -1,4 +1,37 @@
 ---
+google_chrome_repository: deb [arch={{ ansible_architecture }}] http://dl.google.com/linux/chrome/deb/ stable main
+google_chrome_key: https://dl-ssl.google.com/linux/linux_signing_key.pub
+
+base_download_tools:
+  # - aria2
+  # - axel
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - transmission
+  - speedtest-cli
+  - wget
+  - software-properties-common
+  # - youtube-dl
+
+base_system_tools:
+  # - fatrace
+  # - fdupes
+  - gnome-calculator
+  - ufw
+  - gufw
+  - chrome-gnome-shell # Ubuntu extensions
+  # - progress
+  # - pwgen
+  #- syncthing
+
+base_system_tools_laptop:
+#  - cpufrequtils
+#  - powertop
+  - tlp
+  - tlp-rdw
+  - acpi-call-dkms  # for newer ThinkPads (X220/T420 and later)
+#  - tp-smapi-dkms  # for older ThinkPads
 
 base_archiving_tools:
   # - arj
@@ -19,31 +52,7 @@ base_productivity_tools:
   - libreoffice
   - google-chrome-stable
 
-base_system_tools:
-  # - fatrace
-  # - fdupes
-  - gnome-calculator
-  - gufw
-  - chrome-gnome-shell # Ubuntu extensions
-  # - progress
-  # - pwgen
-  #- syncthing
 
-base_system_tools_laptop:
-#  - cpufrequtils
-#  - powertop
-  - tlp
-  - tlp-rdw
-  - acpi-call-dkms  # for newer ThinkPads (X220/T420 and later)
-#  - tp-smapi-dkms  # for older ThinkPads
-
-base_download_tools:
-  # - aria2
-  # - axel
-  - transmission
-  - speedtest-cli
-  - wget
-  # - youtube-dl
 
 base_developer_tools:
   # - 2to3
