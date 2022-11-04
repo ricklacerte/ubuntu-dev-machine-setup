@@ -6,6 +6,33 @@
     state: present
     force_apt_get: yes
 
+- block:
+  - name: get oh-my-zsh install.sh
+    ansible.builtin.get_url: 
+      url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+      dest: /tmp/install-oh-my-zsh.sh
+      mode: '555'
+
+  - name: Install oh-my-zsh
+    shell: /tmp/install-oh-my-zsh.sh
+    args:
+      creates: ~/.oh-my-zsh/oh-my-zsh.sh
+
+  - name : install zsh-autosuggestions
+    ansible.builtin.git:
+      repo: https://github.com/zsh-users/zsh-autosuggestions
+      dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+  - name : install zsh-syntax-highlighting
+    ansible.builtin.git:
+      repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+      dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+ 
+  - name : install zsh-completions
+    ansible.builtin.git:
+      repo: https://github.com/zsh-users/zsh-completions
+      dest: ~/.oh-my-zsh/custom/plugins/zsh-completions
+
 - name: change user's shell to zsh
   ansible.builtin.user:
     name: "{{ local_username }}"

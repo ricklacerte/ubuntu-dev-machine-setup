@@ -1,138 +1,111 @@
-export TERM="xterm-256color"
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-source /usr/share/zsh-antigen/antigen.zsh
+# Path to your oh-my-zsh installation.
+export ZSH="${HOME}/.oh-my-zsh"
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="gozilla"
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle colored-man-pages
-antigen bundle colorize
-antigen bundle docker
-antigen bundle encode64
-#antigen bundle gem
-antigen bundle git
-antigen bundle git-extras
-antigen bundle httpie
-antigen bundle kubectl
-antigen bundle node
-antigen bundle npm
-antigen bundle pep8
-antigen bundle pip
-antigen bundle pipenv
-antigen bundle pylint
-antigen bundle python
-#antigen bundle ruby
-antigen bundle sudo
-antigen bundle vagrant
-antigen bundle yarn
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Syntax highlighting and autosuggestions
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# pure theme
-# https://github.com/sindresorhus/pure
-#antigen bundle mafredri/zsh-async
-#antigen bundle sindresorhus/pure
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# powerlevel10k theme
-# https://github.com/romkatv/powerlevel10k
-#antigen theme romkatv/powerlevel10k
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# bullet train theme
-# https://github.com/caiogondim/bullet-train.zsh
-antigen theme caiogondim/bullet-train.zsh bullet-train
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
 
-# Tell antigen that you're done.
-antigen apply
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
-# customize zsh-syntax-highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-ZSH_HIGHLIGHT_STYLES[default]=none
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
-ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
-ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
-ZSH_HIGHLIGHT_STYLES[global-alias]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
-ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
-ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
-ZSH_HIGHLIGHT_STYLES[path]=underline
-ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
-ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
-ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
-ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
-ZSH_HIGHLIGHT_STYLES[command-substitution]=none
-ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[process-substitution]=none
-ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=blue,bold
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
-ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[assign]=none
-ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
-ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
-ZSH_HIGHLIGHT_STYLES[named-fd]=none
-ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
-ZSH_HIGHLIGHT_STYLES[arg0]=fg=green
-ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
-ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
-ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
-ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
-ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
-ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
-ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-##### START Fix for ssh-agent {
-# Ref: http://mah.everybody.org/docs/ssh
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-SSH_ENV="$HOME/.ssh/environment"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-function start_agent {
-     echo "Initialising new SSH agent..."
-     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-     echo succeeded
-     chmod 600 "${SSH_ENV}"
-     . "${SSH_ENV}" > /dev/null
-     /usr/bin/ssh-add;
-}
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
 
-# Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-     source "${SSH_ENV}" > /dev/null
-     #ps ${SSH_AGENT_PID} doesn't work under cywgin
-     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-          start_agent;
-     }
-else
-     start_agent;
-fi
-##### } END Fix for ssh-agent
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# golang
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
 
-# make sure pipenv creates virtualenv dir in current dir under .venv
-export PIPENV_VENV_IN_PROJECT=1
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-# make vagrant use virtualbox as the default provider
-export VAGRANT_DEFAULT_PROVIDER='virtualbox'
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git 
+          zsh-completions
+		zsh-autosuggestions
+		zsh-syntax-highlighting
+          colored-man-pages
+		sudo
+		history
+		dirhistory
+		docker
+)
 
-# extra aliases, functions and variables can be defined in these files
-[ -f ~/.shell_aliases  ] && source ~/.shell_aliases
-[ -f ~/.shell_functions  ] && source ~/.shell_functions
-[ -f ~/.shell_variables ] && source ~/.shell_variables
+source $ZSH/oh-my-zsh.sh
 
-# enable fzf fuzzy finder completions in the terminal
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh    #fzf
-[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh        #fzf
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+alias ll="ls -laFh"
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
