@@ -9,6 +9,7 @@ call vundle#begin()
     Plugin 'dracula/vim'
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'tmhedberg/SimpylFold'
+    Plugin 'ryanoasis/vim-devicons'
 "	Plugin 'EasyMotion'
 "	Plugin 'nvie/vim-flake8'
     Plugin 'vim-airline/vim-airline'
@@ -78,7 +79,8 @@ syntax enable
 let python_highlight_all=1
 
 " encoding as UTF-8
-set encoding=utf-8
+set encoding=UTF-8
+set guifont=DroidSansMono\ Nerd\ Font\ 11
 
 "Plugin : Powerline 
 set laststatus=2
@@ -126,6 +128,12 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set shiftwidth=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => airline-powerline settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:webdevicons_enable_airline_tabline = 1
+let g:airline_powerline_fonts = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => SimplyFold plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SimpylFold_docstring_preview = 1
@@ -146,6 +154,7 @@ let g:ctrlp_cmd = 'CtrlP'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:webdevicons_enable_nerdtree = 1
 let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']

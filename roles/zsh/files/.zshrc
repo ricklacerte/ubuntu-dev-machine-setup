@@ -71,10 +71,10 @@ ZSH_THEME="gozilla"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git 
-          zsh-completions
+		zsh-completions
 		zsh-autosuggestions
 		zsh-syntax-highlighting
-          colored-man-pages
+		colored-man-pages
 		sudo
 		history
 		dirhistory

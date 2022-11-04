@@ -33,4 +33,9 @@
 - name: Install Vim plugins
   ansible.builtin.shell: vim -c ':PluginInstall' -c ':qa'
 
+- name: Link vim to nvim
+  ansible.builtin.file:
+    src: ~/.vimrc
+    dest: ~/.config/nvim/init.vim
+    state: link
 ...
