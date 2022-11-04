@@ -56,8 +56,6 @@ base_productivity_tools:
   - libreoffice
   - google-chrome-stable
 
-
-
 base_developer_tools:
   # - 2to3
   # - android-tools-adb
@@ -79,7 +77,8 @@ base_developer_tools:
   # - exa
   # - expect
   # - filezilla
-  - fonts-powerline
+  - fzf
+  # - fonts-powerline
   - fzf
   - g++
   # - gedit-plugins
@@ -137,6 +136,7 @@ base_developer_tools:
   - sshpass
   - sshuttle
   - tig
+  - terminator
   # - tilix
   # - tmux
   # - tmuxp
