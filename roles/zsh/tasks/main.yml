@@ -33,6 +33,17 @@
       repo: https://github.com/zsh-users/zsh-completions
       dest: ~/.oh-my-zsh/custom/plugins/zsh-completions
 
+- name: Get dracula theme
+  ansible.builtin.git:
+    repo: 'https://github.com/dracula/zsh.git'
+    dest: ~/.oh-my-zsh/custom/themes/dracula/
+
+- name: Install dracula theme 
+  ansible.builtin.file:
+    src: ~/.oh-my-zsh/custom/themes/dracula/dracula.zsh-theme
+    dest: ~/.oh-my-zsh/custom/themes/dracula.zsh-theme
+    state: link
+
 - name: change user's shell to zsh
   ansible.builtin.user:
     name: "{{ local_username }}"
