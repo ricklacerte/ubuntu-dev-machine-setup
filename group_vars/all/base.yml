@@ -108,7 +108,7 @@ base_developer_tools:
   # - parallel
   # - pcre2-utils  # provides pcre2grep and pcre2test (perl-compatible regex)
   # - pep8
-  - powerline
+  # - powerline
   # - pry
   # - pssh
   #- puppet
@@ -135,6 +135,7 @@ base_developer_tools:
   - sshfs
   - sshpass
   - sshuttle
+  - stacer
   - tig
   - terminator
   # - tilix
@@ -143,6 +144,7 @@ base_developer_tools:
   - tree
   - uget
   - xclip
+  - wireshark
   # - yamllint
   - zeal
 
